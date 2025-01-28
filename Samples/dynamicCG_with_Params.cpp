@@ -5,7 +5,7 @@ using namespace sycl;
 
 constexpr size_t Size = 1024;
 
-SYCL_EXT_ONEAPI_FUNCTION_PROPERTY((exp_ext::single_task_kernel))
+SYCL_EXT_ONEAPI_FUNCTION_PROPERTY((sycl_ext::single_task_kernel))
 void ff_0(int *Ptr) {
   for (size_t i{0}; i < Size; ++i) {
     Ptr[i] = i;
