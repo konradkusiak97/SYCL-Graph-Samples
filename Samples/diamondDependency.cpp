@@ -82,8 +82,5 @@ int main() {
         .wait();
   }
 
-  // Check output using host accessors
-  host_accessor HostAccA(BufferA);
-  host_accessor HostAccB(BufferB);
-  host_accessor HostAccC(BufferC);
+  return 0;
 }
