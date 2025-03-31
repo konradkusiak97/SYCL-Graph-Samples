@@ -1,3 +1,5 @@
+#include "common/aspect_queries.hpp"
+
 #include <sycl/sycl.hpp>
 
 namespace sycl_ext = sycl::ext::oneapi::experimental;
@@ -14,6 +16,9 @@ void ff_0(int *Ptr) {
 
 int main() {
   queue Queue{};
+
+  ensure_full_graph_support(Queue.get_device());
+
   auto Context = Queue.get_context();
   auto Device = Queue.get_device();
 

@@ -1,3 +1,5 @@
+#include "common/aspect_queries.hpp"
+
 #include <sycl/sycl.hpp>
 
 namespace sycl_ext = sycl::ext::oneapi::experimental;
@@ -7,6 +9,8 @@ int main() {
   constexpr size_t Size = 1024;
 
   queue Queue{};
+
+  ensure_graph_support(Queue.get_device());
 
   std::vector<int> DataA(Size), DataB(Size), DataC(Size);
 

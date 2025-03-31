@@ -1,3 +1,5 @@
+#include "common/aspect_queries.hpp"
+
 #include <sycl/sycl.hpp>
 
 namespace sycl_ext = sycl::ext::oneapi::experimental;
@@ -24,6 +26,8 @@ void runKernels(int *InputPtr, queue Queue) {
 
 int main() {
   queue Queue{};
+
+  ensure_full_graph_support(Queue.get_device());
 
   // USM allocations
   int *ptrA = malloc_device<int>(Size, Queue);

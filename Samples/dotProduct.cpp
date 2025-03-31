@@ -1,3 +1,5 @@
+#include "common/aspect_queries.hpp"
+
 #include <sycl/sycl.hpp>
 
 namespace sycl_ext = sycl::ext::oneapi::experimental;
@@ -11,6 +13,9 @@ int main() {
   float Gamma = 3.0f;
 
   queue Queue{};
+
+  ensure_required_aspects_support(Queue.get_device());
+
   sycl_ext::command_graph Graph(Queue.get_context(), Queue.get_device());
 
   float *Dotp = malloc_shared<float>(1, Queue);
